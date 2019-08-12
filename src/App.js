@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react'
 import './App.css';
 import Item from './components/Item';
-import DevTools from 'mobx-react-devtools';
+// import DevTools from 'mobx-react-devtools';
 
 
 @observer
