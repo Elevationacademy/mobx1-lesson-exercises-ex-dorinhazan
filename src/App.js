@@ -2,10 +2,17 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react'
 import './App.css';
 import Item from './components/Item';
+import DevTools from 'mobx-react-devtools';
 
 
 @observer
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      newItem: ''
+    }
+  }
   handleChange = (e) => {
     this.setState({
       newItem: e.target.value
@@ -15,13 +22,15 @@ class App extends Component {
     this.props.store.addItem(this.state.newItem)
   }
   render() {
+    let store = this.props.store
     return (
       <div className="App">
-        <input onChange = {this.handleChange}/>
-        <button onClick = {this.addItem}>Add</button>
-      {/* your code here
-          You should map each grocery item into an Item component  
-      */}  
+        < DevTools />
+        <input onChange={this.handleChange} />
+        <button onClick={this.addItem}>Add</button>
+        {store.list.map(m => <Item item={m}  store={this.props.store} />)}
+        <div>
+        </div>
       </div>
     );
   }
