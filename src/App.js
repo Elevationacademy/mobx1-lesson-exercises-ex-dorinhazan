@@ -25,7 +25,7 @@ class App extends Component {
     let store = this.props.store
     return (
       <div className="App">
-        < DevTools />
+        {/* < DevTools /> */}
         <input onChange={this.handleChange} />
         <button onClick={this.addItem}>Add</button>
         {store.list.map(m => <Item item={m}  store={this.props.store} />)}
